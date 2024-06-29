@@ -1,0 +1,336 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: "Roboto", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    
+}
+
+/* App Container */
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+}
+
+.app>.screen {
+    display: none;
+}
+
+.app>.screen.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Join Screen Styling */
+.join-screen .form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.join-screen h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+    border-bottom: 4px solid #555;
+    padding-bottom: 10px;
+}
+
+.form-input {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.form-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-input input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+.form-input input:focus {
+    border: 1px solid #007bff;
+}
+
+.form-input button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-input button:hover {
+    background: linear-gradient(135deg, #218838 0%, #28a745 100%);
+    transform: scale(1.05);
+}
+
+/* Chat Screen Styling */
+.chat-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(135deg, #ece9e6 0%, #ffffff 100%);
+}
+
+.header {
+    background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header button {
+    background: none;
+    border: 1px solid #eee;
+    color: #eee;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header button:hover {
+    background: #495057;
+    transform: scale(1.05);
+}
+
+.messages {
+    flex: 1;
+    padding: 20px;
+    background: #f8f9fa;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f8f9fa;
+}
+
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #f8f9fa;
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.message>div {
+    max-width: 70%;
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.my-message {
+    justify-content: flex-end;
+}
+
+.other-message {
+    justify-content: flex-start;
+}
+
+.message .name {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.message .text {
+    word-wrap: break-word;
+}
+
+.update {
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+    color: gray;
+}
+
+.typebox {
+    display: flex;
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.typebox input {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #f9f9f9;
+    transition: border 0.3s ease;
+}
+
+.typebox input:focus {
+    border: 1px solid #007bff;
+}
+
+.typebox button {
+    width: 150px;
+    padding: 15px;
+    margin-left: 10px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.typebox button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .app {
+        max-width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .header button {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .typebox button {
+        width: 120px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .logo {
+        font-size: 20px;
+    }
+
+    .typebox button {
+        width: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        height: 60px;
+        padding: 0 10px;
+    }
+
+    .header .logo {
+        font-size: 18px;
+    }
+
+    .header button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .messages {
+        padding: 10px;
+    }
+
+    .message>div {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .typebox {
+        padding: 10px;
+    }
+
+    .typebox input {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .typebox button {
+        width: 80px;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
